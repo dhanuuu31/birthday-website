@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 25%, #fad0c4 50%, #a18cd1 75%, #fbc2eb 100%);
+      color: #333;
+      text-align: center;
+      padding: 40px 20px;
+      line-height: 1.8;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+    .message {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    }
+    .heart {
+      font-size: 2.5rem;
+      color: #ff4d6d;
+      animation: heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+    .marathi-quote {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #b30059;
+      font-family: 'Dancing Script', cursive;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 1rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="Itna Na Mujhse Tu Pyaar Badha(KoshalWorld.Com).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <h1>For the Love of My Life ❤️</h1>
+  
+  <div class="message">
+    <p>
+      My love, words will never be enough to describe what you mean to me. You are not just a part of my life—you are my whole life, my smile, my reason to keep going.  
+      From the day you walked into my world, everything became brighter, happier, and more meaningful.  
+      Every little thing about you makes my heart skip a beat—your smile, your voice, your kindness, and even your silly little habits.  
+    </p>
+    <p>
+      You are my best friend, my partner, my soulmate, and my safe place. No matter where life takes us, I promise to hold your hand, wipe your tears, share your laughter, and stand by you in every storm.  
+      My love for you will never fade—it will only grow stronger with each passing moment.  
+      I may not be perfect, but with you, I have found a love that is perfectly beautiful.  
+    </p>
+    <p>
+      MY MAN🤍
+
+      He's the most handsome.
+      He's the cutest.
+      He's so precious.
+      Can't take my eyes off him.
+      His smile literally kills me.
+      His eyes have magic in them.
+      Just hearing his name makes me smile.
+      Waiting for him every single moment.
+      Everything he says feels so special.
+      His one smile can make my whole day.
+      When he looks at me, the world stops.
+      Every second with him feels like a dream.
+      His voice is pure peace.
+      One glance from him, and I forget everything.
+      The whole world on one side, him on the other.
+      No matter how busy I am,
+      he crosses my mind. Everything feels perfect when he's around.
+      There are many cute ones, but he's my only one.
+      I'm completely obsessed with him.
+    </p>
+    <p>
+      तुझ्याशी बोललं की सगळा दिवस किती सुंदर वाटतो माहितीय? 💕 
+      तू माझ्या आयुष्यात आहेस, हीच माझ्यासाठी सर्वात मोठी गिफ्ट आहे. तुझी प्रत्येक छोटी छोटी काळजी, प्रेमळ शब्द आणि हसू माझं जग उजळवून टाकतात. कधी कधी खरंच वाटतं की मी इतकी नशिबवान कशी झाले की मला तू मिळालास. तू माझा बेस्ट फ्रेंड, माझा पार्टनर आणि माझा प्रचंड लाडका आहेस. मला फक्त एवढंच सांगायचंय की मी तुला खूप खूप प्रेम करते आणि कायम तुझ्यासोबत राहायचं आहे. 💖
+    </p>
+    <p>
+      Always remember—my heart beats only for you. You are my today, my tomorrow, and my forever. 💖
+    </p>
+    <div class="heart">💓</div>
+
+    <div class="marathi">
+      "तू आहेस म्हणून माझं जगणं सुंदर आहे...<br>
+      तू आहेस म्हणून माझं प्रत्येक स्वप्न खास आहे...<br>
+      आणि तूच आहेस म्हणून माझं आयुष्य पूर्ण आहे!"  
+    </div>
+  </div>
+
+  <div class="footer">
+    With endless love to u श्री, always yours सखी❤️
+  </div>
+
+  <script>
+  const bgMusic = document.getElementById("bgMusic");
+  let started = false;
+
+  // 1:49 ते 3:44 (सेकंदात)
+  const START = 115; // 1*60 + 49
+  const END = 224;   // 3*60 + 44
+
+  function startMusic() {
+    if (!started) {
+      started = true;
+      bgMusic.currentTime = START; // सुरुवात 1:49 पासून
+      bgMusic.volume = 0.5;
+      bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
+
+      // END वेळेला थांबवायचं
+      bgMusic.addEventListener("timeupdate", () => {
+        if (bgMusic.currentTime >= END) {
+          bgMusic.pause();
+          bgMusic.currentTime = START; // परत सुरुवातीला ठेवायचं (repeat हवं नसेल तर हे काढा)
+        }
+      });
+    }
+  }
+
+  // First interaction = play music
+  document.addEventListener("click", startMusic, { once: true });
+  document.addEventListener("touchstart", startMusic, { once: true });
+</script>
+
+</body>
+</html>

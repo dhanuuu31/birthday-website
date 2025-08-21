@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
         
         .title {
             font-family: 'Brush Script MT', cursive;
-            font-size: 60px;
+            font-size: 50px;
             color: white;
             text-shadow: 0 0 10px rgba(0,0,0,0.3), 
                          0 0 20px rgba(255,192,203,0.5),
@@ -149,7 +149,6 @@
                 height: 12px;
             }
         }
-
 
         .spotlight {
             position: fixed;
@@ -384,9 +383,9 @@
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(10px);
             border: 2px solid rgba(214, 51, 132, 0.3);
-            border-radius: 30px;   /* smaller round */
-            padding: 10px 20px;    /* 👈 smaller size */
-            font-size: 14px;       /* 👈 smaller text */
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 14px;
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             color: #d63384;
@@ -395,15 +394,12 @@
             box-shadow: 0 6px 15px rgba(214, 51, 132, 0.2);
             text-decoration: none;
             display: inline-block;
-
-            /* Bottom center fixed */
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2000;
         }
-    
     </style>
 </head>
 <body>
@@ -428,9 +424,11 @@
             Message for u!!
         </a>
     </div>
-        <audio id="bgMusic" loop>
-  <source src="Tum Ho Toh(KoshalWorld.Com).mp3" type="audio/mpeg">
-</audio>
+
+    <!-- Background Music -->
+    <audio id="bgMusic">
+        <source src="Tum Ho Toh(KoshalWorld.Com).mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         function createStars() {
@@ -477,7 +475,6 @@
             const prevButton = document.querySelector('.nav-button.prev');
             const nextButton = document.querySelector('.nav-button.next');
             
-            // Array of image URLs
             const imageUrls = [
                 'download (4).jpg',
                 'download (1).jpg',
@@ -489,10 +486,8 @@
                 'dd2.jpg',
                 'dd8.jpg',
                 'dd.jpg',
-                
             ];
             
-            // Create cards...
             for (let i = 0; i < totalCards; i++) {
                 const card = document.createElement('div');
                 card.className = 'card';
@@ -505,18 +500,13 @@
 
             function rotateGallery(direction) {
                 clearInterval(autoRotateInterval);
-                currentAngle += direction * 36; // 360 / 10 cards = 36 degrees per card
+                currentAngle += direction * 36;
                 updateCards();
-                
-                // Restart auto-rotation after 5 seconds of inactivity
                 setTimeout(() => {
-                    if (!isDragging) {
-                        startAutoRotate();
-                    }
+                    if (!isDragging) startAutoRotate();
                 }, 5000);
             }
 
-            // Navigation button click handlers
             prevButton.addEventListener('click', () => rotateGallery(1));
             nextButton.addEventListener('click', () => rotateGallery(-1));
 
@@ -533,8 +523,6 @@
                     const normalizedAngle = ((currentAngle + extraRotation + (index * (360 / totalCards))) % 360 + 360) % 360;
                     if (normalizedAngle > 350 || normalizedAngle < 10) {
                         card.classList.add('active');
-                    } else {
-                        card.classList.remove('active');
                     }
 
                     const opacity = Math.max(0.2, 1 - Math.abs(normalizedAngle - 180) / 180);
@@ -679,6 +667,36 @@ function startMusic() {
 
 document.body.addEventListener("click", startMusic, { once: true });
 document.body.addEventListener("touchstart", startMusic, { once: true });
+
+const bgMusic = document.getElementById("bgMusic");
+  let started = false;
+
+  // 1:49 ते 3:44 (सेकंदात)
+  const START = 31;   // 0:31 in seconds
+    const END = 318;    // 5:18 in seconds
+    const audio = document.getElementById("bg-music");
+
+
+  function startMusic() {
+    if (!started) {
+      started = true;
+      bgMusic.currentTime = START; // सुरुवात 1:49 पासून
+      bgMusic.volume = 0.5;
+      bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
+
+      // END वेळेला थांबवायचं
+      bgMusic.addEventListener("timeupdate", () => {
+        if (bgMusic.currentTime >= END) {
+          bgMusic.pause();
+          bgMusic.currentTime = START; // परत सुरुवातीला ठेवायचं (repeat हवं नसेल तर हे काढा)
+        }
+      });
+    }
+  }
+
+  // First interaction = play music
+  document.addEventListener("click", startMusic, { once: true });
+  document.addEventListener("touchstart", startMusic, { once: true });
 
     </script>
 </body>
